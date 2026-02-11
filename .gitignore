@@ -1,0 +1,7 @@
+# Godot & VS ignore
+.vs/
+.godot/
+*.user
+*.mono/
+bin/
+obj/
