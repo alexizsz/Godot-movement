@@ -3,14 +3,18 @@ using System;
 
 public partial class Player : Area2D
 {
-	
-	public override void _Ready()
+
+    [Signal]
+    public delegate void HitEventHandler();
+
+    public override void _Ready()
 	{
         ScreenSize = GetViewportRect().Size;
+        Hide();
     }
 
-	
-	public override void _Process(double delta)
+
+    public override void _Process(double delta)
 	{
         var velocity = Vector2.Zero; 
 

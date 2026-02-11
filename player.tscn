@@ -61,7 +61,7 @@ radius = 27.0
 height = 68.0
 
 [node name="Player" type="Area2D" unique_id=1421910450]
-position = Vector2(241, 135)
+position = Vector2(22, 17)
 script = ExtResource("1_sweqy")
 metadata/_edit_group_ = true
 
@@ -73,3 +73,5 @@ script = SubResource("CSharpScript_2hs0m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=793419410]
 shape = SubResource("CapsuleShape2D_b26j0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
