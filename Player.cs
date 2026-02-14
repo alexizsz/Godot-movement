@@ -15,8 +15,8 @@ public partial class Player : Area2D
 
 
     public override void _Process(double delta)
-	{
-        var velocity = Vector2.Zero; 
+    {
+        var velocity = Vector2.Zero;
 
         if (Input.IsActionPressed("move_right"))
         {
@@ -65,10 +65,24 @@ public partial class Player : Area2D
             animatedSprite2D.FlipH = false;
         }
         animatedSprite2D.FlipV = velocity.Y > 0;
-        }
-    
+    }
 
-	[Export]
+    public void Start(Vector2 position)
+    {
+        Position = position;
+        Show();
+        GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+    }
+
+    private void OnBodyEntered(Node2D body)
+    {
+        Hide();
+        EmitSignal(SignalName.Hit);
+        GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+    }
+
+
+    [Export]
 	public int Speed { get; set; } = 400;
 
 	public Vector2 ScreenSize;

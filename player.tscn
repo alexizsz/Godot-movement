@@ -74,4 +74,4 @@ script = SubResource("CSharpScript_2hs0m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=793419410]
 shape = SubResource("CapsuleShape2D_b26j0")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
